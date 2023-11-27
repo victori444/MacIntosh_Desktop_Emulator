@@ -1,0 +1,21 @@
+body {
+    background-image: url("../images/bckgrnd80s.png");
+    background-size: 1200px;
+    background-repeat: repeat;
+    background-color: grey;
+    font-family: 'Patrick Hand SC', cursive;
+    font-family: 'VT323', monospace;
+}
+
+.container {
+    display: block;
+    background-color: rgb(240, 240, 240);
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    text-align: center;
+}

@@ -1,0 +1,156 @@
+#body {
+    background-image: url("../images/bckgrnd80s.png");
+    background-size: 1200px;
+    background-repeat: repeat;
+    background-color: grey;
+    font-family: 'VT323', monospace;
+}
+
+/* ****** TOP TITLE BAR ******* */
+#titleBar {
+    overflow: hidden;
+    background-color: rgb(240, 240, 240);
+    height: 25px;
+    margin: -8px;
+    border-bottom: 2px solid black;
+    font-size: 16px;
+}
+
+.titleBar_title {
+    /* float: left; */
+    display: inline-block;
+    text-align: center;
+    padding: 0px 15px;
+    padding-top: 5px;
+    margin-bottom: -1px;
+}
+
+.titleBar_drop_container {
+    /* float: left; */
+    display: inline-block;
+    overflow: hidden;
+}
+
+.titleBar_title:hover{
+    background-color: black;
+    color: rgb(240, 240, 240);
+}
+
+.titleBar_drop_container .titleBar_title {
+    cursor: pointer;
+    font-family: inherit;
+    margin: 0;
+}
+
+.titleBar_drop_content {
+    display: none;
+    position: absolute;
+    background-color: rgb(240, 240, 240);
+    min-width: 160px;
+    z-index: 1;
+    top: 28px;
+    padding: 0;
+    border: 2px solid black;
+}
+
+.titleBar_drop_content p {
+    display: block;
+    color: black;
+    text-align: left;
+    margin: 0;
+    min-width: 160px;
+}
+
+.titleBar_drop_content p:hover{
+    background-color: black;
+    color: rgb(240, 240, 240);
+}
+
+#titleBar_drop_content_1 {
+    left: 5px;
+}
+
+#titleBar_drop_content_2 {
+    left: 65px;
+}
+
+#titleBar_drop_content_3 {
+    left: 120px;
+}
+
+#titleBar_drop_content_4 {
+    left: 175px;
+}
+
+#date {
+    float: right;
+    padding: 5px 15px 0px 15px;
+}
+
+/* ****** WELCOME POPUP ******* */
+#welcomePopup {
+    display: block;
+    background-color: rgb(240, 240, 240);
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+}
+
+.popupHeader {
+    border-bottom: 2px solid black;
+    height: 20px;
+}
+
+/* ******* POPUPS ******* */
+.closedPopup {
+    display: none;
+    background-color: rgb(240, 240, 240);
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+}
+
+/* ****** APPS ****** */
+.app {
+    top: 100px;
+    right: 30px;
+    position: absolute;
+    padding: 10px;
+}
+
+.app:hover {
+    background-color: rgba(160, 160, 160, 0.6);
+    opacity: 0.8;
+}
+.appIcon {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+}
+
+.appName {
+    background-color: white;
+    margin: 2px 0px 0px 0px;
+    text-align: center;
+}
+
+/* ****** APPS OPEN ****** */
+.appOpen {
+    display: none;
+    background-color: rgb(240, 240, 240);
+    height: 500px;
+    width: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+}

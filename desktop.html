@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/desktop.css">
+        <script src="scripts/desktop.js"></script>
+        <!-- google fonts import -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&family=VT323&display=swap" rel="stylesheet">
+        
+        <title>Desktop</title>
+    </head>
+    <body id="body">
+        <!-- TOP TITLE BAR-->
+        <div id="titleBar">
+            <div class="titleBar_drop_container">
+                <p class="titleBar_title" id="titleBar_title_1" onClick="toggleDropdown('titleBar_drop_content_1', 'titleBar_title_1')">logo</p>
+                <div id="titleBar_drop_content_1" class="titleBar_drop_content">
+                    <p onClick="openPopup('aboutMacPopup')">About This Mac</p>
+                    <p onClick="openPopup('systemSettings')">System Settings</p>
+                    <p onClick="newPage()">Log out</p>
+                </div>
+                <p class="titleBar_title" id="titleBar_title_2" onClick="toggleDropdown('titleBar_drop_content_2', 'titleBar_title_2')">File</p>
+                <div id="titleBar_drop_content_2" class="titleBar_drop_content">
+                    <p>item 1</p>
+                    <p>item 2</p>
+                </div>
+                <p class="titleBar_title" id="titleBar_title_3" onClick="toggleDropdown('titleBar_drop_content_3', 'titleBar_title_3')">Edit</p>
+                <div id="titleBar_drop_content_3" class="titleBar_drop_content">
+                    <p>item 1</p>
+                    <p>item 2</p>
+                </div>
+                <p class="titleBar_title" id="titleBar_title_4" onClick="toggleDropdown('titleBar_drop_content_4', 'titleBar_title_4')">Help</p>
+                <div id="titleBar_drop_content_4" class="titleBar_drop_content">
+                    <p onClick="openPopup('tipsPopup')">Tips For Your Mac</p>
+                    <p onClick="openPopup('MacHelp')">MacOS Help</p>
+                </div>
+            </div>
+            <span id="date"></span>
+        </div>
+
+        <!-- WELCOME ERROR MESSAGE -->
+        <div id="welcomePopup">
+            <div class="popupHeader"><p onClick="closePopup('welcomePopup')">X</p></div>
+            <h3>welcome</h3>
+        </div>
+
+        <!-- POPUPS -->
+        <!-- About Mac -->
+        <div id="aboutMacPopup" class="closedPopup">
+            <div class="popupHeader"><p onClick="closePopup('aboutMacPopup')">X</p></div>
+            <h3>Macintosh 128K</h3>
+            <!-- <img href=""/> -->
+            <p>9-in, 1983</p>
+        </div>
+        <!-- System settings : decade input -->
+        <div id="systemSettings" class="closedPopup">
+            <div class="popupHeader"><p onClick="closePopup('systemSettings')">X</p></div>
+            <h3>System Settings</h3>
+            <h5>What decade is it or smth idk</h5>
+            <input type="radio" id="80s" value="80s" name="decade">80s
+            <input type="radio" id="90s" value="90s" name="decade">90s
+            <input type="radio" id="00s" value="00s" name="decade">00s
+            <input type="radio" id="10s" value="10s" name="decade">10s
+            <input type="radio" id="20s" value="20s" name="decade">20s
+            <button type="button" onClick="radioValue()">Save Settings</button>
+        </div>
+        <div id="tipsPopup" class="closedPopup">
+            <div class="popupHeader"><p onClick="closePopup('tipsPopup')">X</p></div>
+            <h3>Tips For Your Mac</h3>
+        </div>
+        <div id="MacHelp" class="closedPopup">
+            <div class="popupHeader"><p onClick="closePopup('MacHelp')">X</p></div>
+            <h3>MacOS Help</h3>
+        </div>
+
+        <!-- APPS -->
+        <div id="musicPlayer" class="app" ondblclick="openPopup('musicPlayerOpen')">
+            <div id="musicPlayerIcon" class="appIcon"></div>
+            <p id="musicPlayerName" class="appName">MUSIC</p>
+        </div>
+        <div id="musicPlayerOpen" class="appOpen">
+            <div class="popupHeader"><p onClick="closePopup('musicPlayerOpen')">X</p></div>
+            
+        </div>
+        
+    </body>
+</html>
