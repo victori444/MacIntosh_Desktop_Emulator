@@ -121,18 +121,22 @@ function updateTime() {
 setInterval(updateTime, 1000);
 
 // --------- MUSIC PLAYER ---------- //
-var audio = new Audio('./audios/crush.mp3');
-
+var audio = new Audio('./audios/crush.mp3', loop=true, volume=0.5);
 function playMusic() {
-    if (document.getElementById("disk").style.animationPlayState == "running") {
-        console.log("rotatinng");
-        document.getElementById("disk").style.animationPlayState = "paused";
-        audio.pause();
-    } else {
-        console.log("rotatinng2");
-        document.getElementById("disk").style.animationPlayState = "running";
-        audio.play();
-    }
+    document.getElementById('disk').style.animationPlayState = "running";
+    document.getElementById('play').style.backgroundColor = "grey";
+    document.getElementById('pause').style.backgroundColor = "black";
+    document.getElementById('needle').style.transform = "rotate(30deg)";
+    document.getElementById('needle').style.transition = "transform 1s";
+    audio.play();
+}
+function pauseMusic() {
+    document.getElementById('disk').style.animationPlayState = "paused";
+    document.getElementById('play').style.backgroundColor = "black";
+    document.getElementById('pause').style.backgroundColor = "grey";
+    document.getElementById('needle').style.transform = "rotate(0deg)";
+    document.getElementById('needle').style.transition = "transform 1s";
+    audio.pause();
 }
 
 // background images from: https://www.reddit.com/r/VintageApple/comments/t20smz/heres_every_mac_os_default_wallpaper_19842022_4k/

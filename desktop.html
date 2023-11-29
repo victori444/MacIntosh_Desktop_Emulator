@@ -97,20 +97,41 @@
             <div class="popupHeader"><p onClick="closePopup('musicPlayerOpen')">x</p></div>
             <div class="popupContainer musicContainer">
                 <div id="disk"></div>
+                <div id="needle"></div>
                 <div class="musicButtons">
                     <div id="play" class="musicButton" onClick="playMusic()"></div>
-                    <div id="pause" class="musicButton"></div>
+                    <div id="pause" class="musicButton" onClick="pauseMusic()"></div>
                 </div>
             </div>
         </div>
 
         <!-- QuickTime Player -->
-        <div id="quicktime" class="app" ondblclick="openPopup('quicktimeOpen')">
-            <div id="quicktimeIcon" class="appIcon"></div>
-            <p id="quicktimeName" class="appName">QuickTime Player</p>
+        <div id="file" class="app" ondblclick="openPopup('fileOpen')">
+            <div id="fileIcon" class="appIcon"></div>
+            <p id="fileName" class="appName">Open_letter_to<br>_hobbyists.pdf</p>
         </div>
-        <div id="quicktimeOpen" class="appOpen window">
-            <div class="popupHeader"><p onClick="closePopup('quicktimeOpen')">x</p></div>
+        <div id="fileOpen" class="appOpen window">
+            <div class="popupHeader"><p onClick="closePopup('fileOpen')">x</p></div>
+            <div class="popupContainer">
+                <h1>AN OPEN LETTER TO HOBBYISTS</h1>
+                <p>February 3, 1976</p>
+                <h6>By William Henry Gates III</h6>
+                <p>To me, the most critical thing in the hobby market right now is the lack of good software courses, books and software itself. Without good software and an owner who understands programming, a hobby computer is wasted. Will quality software be written for the hobby market?<br><br>
+                    Almost a year ago, Paul Allen and myself, expecting the hobby market to expand, hired Monte Davidoff and developed Altair BASIC. Though the initial work took only two months, the three of us have spent most of the last year documenting, improving and adding features to BASIC. Now we have 4K, 8K, EXTENDED, ROM and DISK BASIC. The value of the computer time we have used exceeds $40,000.
+                    <br><br>
+                    The feedback we have gotten from the hundreds of people who say they are using BASIC has all been positive. Two surprising things are apparent, however, 1) Most of these "users" never bought BASIC (less thank 10% of all Altair owners have bought BASIC), and 2) The amount of royalties we have received from sales to hobbyists makes the time spent on Altair BASIC worth less than $2 an hour.
+                    <br><br>
+                    Why is this? As the majority of hobbyists must be aware, most of you steal your software. Hardware must be paid for, but software is something to share. Who cares if the people who worked on it get paid?
+                    <br><br>
+                    Is this fair? One thing you don't do by stealing software is get back at MITS for some problem you may have had. MITS doesn't make money selling software. The royalty paid to us, the manual, the tape and the overhead make it a break-even operation. One thing you do do is prevent good software from being written. Who can afford to do professional work for nothing? What hobbyist can put 3-man years into programming, finding all bugs, documenting his product and distribute for free? The fact is, no one besides us has invested a lot of money in hobby software. We have written 6800 BASIC, and are writing 8080 APL and 6800 APL, but there is very little incentive to make this software available to hobbyists. Most directly, the thing you do is theft.
+                    <br><br>
+                    What about the guys who re-sell Altair BASIC, aren't they making money on hobby software? Yes, but those who have been reported to us may lose in the end. They are the ones who give hobbyists a bad name, and should be kicked out of any club meeting they show up at.
+                    <br><br>
+                    I would appreciate letters from any one who wants to pay up, or has a suggestion or comment. Just write to me at 1180 Alvarado SE, #114, Albuquerque, New Mexico, 87108. Nothing would please me more than being able to hire ten programmers and deluge the hobby market with good software.
+                    <br><br>
+                    Bill Gates<br>General Partner, Micro-Soft</p>
+                    <a href="https://archive.nytimes.com/www.nytimes.com/library/cyber/surf/072397mind-letter.html">View Original</a><br><br>
+            </div>
         </div>
 
         <!-- Browser (only available in the 90s) -->

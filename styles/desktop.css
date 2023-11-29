@@ -6,7 +6,12 @@
     font-family: 'VT323', monospace;
     cursor: url('../images/cursor.png'), auto;
 }
-
+a {
+    color: black;
+}
+a::after {
+    color: black;
+}
 
 .window {
     z-index: 1;
@@ -196,9 +201,13 @@
     top: 200px;
     right: 15px;
 }
-#quicktime {
+#file {
     top: 300px;
     right: 25px;
+}
+#fileOpen {
+    height: 600px;
+    overflow: scroll;
 }
 /* ****** APPS OPEN ****** */
 .appOpen {
@@ -234,10 +243,20 @@
         transform: rotate(360deg);
     }
 }
+#needle {
+    margin-top: 45px;
+    margin-left: 10px;
+    width: 20px;
+    height: 250px;
+    background-color: grey;
+    transform-origin: top left;
+    /* transform: rotate(30deg);
+    transition: transform 5s; */
+}
 .musicButtons{
     position: absolute;
     right: 10px;
-    margin-top: 10px;
+    margin-top: 35px;
     display: flex;
 }
 .musicButton{
