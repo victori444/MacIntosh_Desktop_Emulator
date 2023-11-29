@@ -24,7 +24,7 @@
                 </div>
                 <p class="titleBar_title" id="titleBar_title_2" onClick="toggleDropdown('titleBar_drop_content_2')">File</p>
                 <div id="titleBar_drop_content_2" class="titleBar_drop_content window">
-                    <p>item 1</p>
+                    <p>Credits</p>
                     <p>item 2</p>
                 </div>
                 <p class="titleBar_title" id="titleBar_title_3" onClick="toggleDropdown('titleBar_drop_content_3')">Edit</p>
@@ -44,36 +44,47 @@
         <!-- WELCOME ERROR MESSAGE -->
         <div id="welcomePopup" class="window">
             <div class="popupHeader"><p onClick="closePopup('welcomePopup')">x</p></div>
-            <h3>welcome</h3>
+            <div class="popupContainer">
+                <h1>Welcome to Macintosh</h1>
+            </div>
         </div>
 
         <!-- POPUPS -->
         <!-- About Mac -->
         <div id="aboutMacPopup" class="closedPopup window">
             <div class="popupHeader"><p onClick="closePopup('aboutMacPopup')">x</p></div>
-            <h3 id="aboutMacHeader">Macintosh 128K</h3>
-            <!-- <img href=""/> -->
-            <p id="aboutMacInfo">9-in, 1983</p>
+            <div class="popupContainer">
+                <h1 id="aboutMacHeader">Macintosh 128K</h1>
+                <p id="aboutMacInfo">9-in, 1983</p>
+            </div>
         </div>
         <!-- System settings : decade input -->
         <div id="systemSettings" class="closedPopup window">
             <div class="popupHeader"><p onClick="closePopup('systemSettings')">x</p></div>
-            <h3>System Settings</h3>
-            <h5>What decade is it or smth idk</h5>
-            <input type="radio" id="80s" value="80s" name="decade">80s
-            <input type="radio" id="90s" value="90s" name="decade">90s
-            <input type="radio" id="00s" value="00s" name="decade">00s
-            <input type="radio" id="10s" value="10s" name="decade">10s
-            <input type="radio" id="20s" value="20s" name="decade">20s
-            <button type="button" onClick="radioValue()">Save Settings</button>
+            <div class="popupContainer">
+                <h1>System Settings</h1>
+                <h3>Which decade would you like to view?</h2>
+                <input type="radio" id="80s" value="80s" name="decade">80s
+                <input type="radio" id="90s" value="90s" name="decade">90s
+                <input type="radio" id="00s" value="00s" name="decade">00s
+                <input type="radio" id="10s" value="10s" name="decade">10s
+                <input type="radio" id="20s" value="20s" name="decade">20s
+                <br><br>
+                <button id="button" type="button" onClick="radioValue()">Save Settings</button>
+                <p>Note: Logging out will revert the system back to Macintosh 128K</p>
+            </div>
         </div>
         <div id="tipsPopup" class="closedPopup window">
             <div class="popupHeader"><p onClick="closePopup('tipsPopup')">x</p></div>
-            <h3>Tips For Your Mac</h3>
+            <div class="popupContainer">
+                <h3>Tips For Your Mac</h3>
+            </div>
         </div>
         <div id="MacHelp" class="closedPopup window">
             <div class="popupHeader"><p onClick="closePopup('MacHelp')">x</p></div>
-            <h3>MacOS Help</h3>
+            <div class="popupContainer">
+                <h3>MacOS Help</h3>
+            </div>
         </div>
 
         <!-- APPS -->
@@ -84,15 +95,15 @@
         </div>
         <div id="musicPlayerOpen" class="appOpen window">
             <div class="popupHeader"><p onClick="closePopup('musicPlayerOpen')">x</p></div>
+            <div class="popupContainer musicContainer">
+                <div id="disk"></div>
+                <div class="musicButtons">
+                    <div id="play" class="musicButton" onClick="playMusic()"></div>
+                    <div id="pause" class="musicButton"></div>
+                </div>
+            </div>
         </div>
-        <!-- Browser (only available in the 90s) -->
-        <div id="browser" class="app" ondblclick="openPopup('browserOpen')">
-            <div id="browserIcon" class="appIcon"></div>
-            <p id="browserName" class="appName">Browse The Internet</p>
-        </div>
-        <div id="browserOpen" class="appOpen window">
-            <div class="popupHeader"><p onClick="closePopup('browserOpen')">x</p></div>
-        </div>
+
         <!-- QuickTime Player -->
         <div id="quicktime" class="app" ondblclick="openPopup('quicktimeOpen')">
             <div id="quicktimeIcon" class="appIcon"></div>
@@ -100,6 +111,15 @@
         </div>
         <div id="quicktimeOpen" class="appOpen window">
             <div class="popupHeader"><p onClick="closePopup('quicktimeOpen')">x</p></div>
+        </div>
+
+        <!-- Browser (only available in the 90s) -->
+        <div id="browser" class="app" ondblclick="openPopup('browserOpen')">
+            <div id="browserIcon" class="appIcon"></div>
+            <p id="browserName" class="appName">Browse The Internet</p>
+        </div>
+        <div id="browserOpen" class="appOpen window">
+            <div class="popupHeader"><p onClick="closePopup('browserOpen')">x</p></div>
         </div>
     </body>
 </html>

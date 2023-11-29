@@ -26,6 +26,8 @@ function radioValue() {
             chosenDecade = radio[i].value;
         }
     }
+    // close system settings window once submitted
+    document.getElementById('systemSettings').style.display = "none";
     if (chosenDecade != "80s") {
         document.getElementById("browser").style.display = "block";
     }
@@ -33,8 +35,8 @@ function radioValue() {
     if (chosenDecade == "20s") {
         changeBaseStyle(backgroundImgs[4], "cover", fontFamily[2], "13px", "rgb(270, 270, 270, 0.7)", "none");
         changeText(aboutMacHeaders[4], aboutMacInfos[4]);
-        changeGeneralWindowStyle('window');
-        changeAppIcons();
+        changeGeneralWindowStyle(WindowStyle20s, closeButton20s);
+        changeAppIcons(appName20s);
     }
     if (chosenDecade == "80s") {
         changeBaseStyle(backgroundImgs[0], "1200px", fontFamily[0], "16px", "rgb(240, 240, 240)", "2px solid black");
@@ -63,31 +65,36 @@ function changeText(abtMacHeader, abtMacInfo) {
 
 }
 
+const WindowStyle20s = ["rgb(270, 270, 270, 0.85)", "0.5px solid grey", "7px", "5px 5px", "0 0 black"];
+const closeButton20s = ["red", "none", "15px", "15px", "50%", "center", "12px"];
+
 // POPUPS / WINDOWS STYLING
-function changeGeneralWindowStyle(className) {
+function changeGeneralWindowStyle(windowArray, closeButtonArray) {
     // container styling
-    const collection = document.getElementsByClassName(className);
+    const collection = document.getElementsByClassName('window');
     for (let i = 0; i < collection.length; i++) {
-        collection[i].style.backgroundColor = "rgb(270, 270, 270, 0.85)";
-        collection[i].style.border = "0.5px solid grey";
-        collection[i].style.borderRadius = "7px";
-        collection[i].style.padding = "5px 5px";
-        collection[i].style.boxShadow = "0 0 black"; // change these to variable for decades
+        collection[i].style.backgroundColor = windowArray[0];
+        collection[i].style.border = windowArray[1];
+        collection[i].style.borderRadius = windowArray[2];
+        collection[i].style.padding = windowArray[3];
+        collection[i].style.boxShadow = windowArray[4];
     }
     // close window button styling
     const closeButtons = document.getElementsByClassName('popupHeader');
     for (let i = 0; i < closeButtons.length; i++) {
-        closeButtons[i].style.backgroundColor = "red";
-        closeButtons[i].style.border = "none";
-        closeButtons[i].style.width = "15px";
-        closeButtons[i].style.height = "15px";
-        closeButtons[i].style.borderRadius = "50%";
-        closeButtons[i].style.justifyContent = "center";
-        closeButtons[i].style.fontSize = "12px";
+        closeButtons[i].style.backgroundColor = closeButtonArray[0];
+        closeButtons[i].style.border = closeButtonArray[1];
+        closeButtons[i].style.width = closeButtonArray[2];
+        closeButtons[i].style.height = closeButtonArray[3];
+        closeButtons[i].style.borderRadius = closeButtonArray[4];
+        closeButtons[i].style.justifyContent = closeButtonArray[5];
+        closeButtons[i].style.fontSize = closeButtonArray[6];
     }
 }
 
-function changeAppIcons() {
+const appName20s = ["10px", "transparent", "white", "5px 0px 0px 0px"]
+
+function changeAppIcons(appNameArray) {
     const appIcons = document.getElementsByClassName('appIcon');
     for (let i = 0; i < appIcons.length; i++) {
         console.log('changed app icon img');
@@ -95,12 +102,11 @@ function changeAppIcons() {
     }
     const appNames = document.getElementsByClassName('appName');
     for (let i = 0; i < appNames.length; i++) {
-        appNames[i].style.fontSize = "10px";
-        appNames[i].style.backgroundColor = "transparent";
-        appNames[i].style.color = "white";
-        appNames[i].style.margin = "5px 0px 0px 0px";
+        appNames[i].style.fontSize = appNameArray[0];
+        appNames[i].style.backgroundColor = appNameArray[1];
+        appNames[i].style.color = appNameArray[2];
+        appNames[i].style.margin = appNameArray[3];
     }
-
 }
 
 
@@ -114,10 +120,24 @@ function updateTime() {
 }
 setInterval(updateTime, 1000);
 
+// --------- MUSIC PLAYER ---------- //
+var audio = new Audio('./audios/crush.mp3');
+
+function playMusic() {
+    if (document.getElementById("disk").style.animationPlayState == "running") {
+        console.log("rotatinng");
+        document.getElementById("disk").style.animationPlayState = "paused";
+        audio.pause();
+    } else {
+        console.log("rotatinng2");
+        document.getElementById("disk").style.animationPlayState = "running";
+        audio.play();
+    }
+}
+
 // background images from: https://www.reddit.com/r/VintageApple/comments/t20smz/heres_every_mac_os_default_wallpaper_19842022_4k/
 
-// console error: line 48 doc.getelement is null
 
 // add-ons: timed popups / randomly show?
-// drag and drop
+// custom cursor
 // responsive, but needs to work on mobile or can be wide-screen compatible only
