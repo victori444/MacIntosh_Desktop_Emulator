@@ -77,13 +77,13 @@
         <div id="tipsPopup" class="closedPopup window">
             <div class="popupHeader"><p onClick="closePopup('tipsPopup')">x</p></div>
             <div class="popupContainer">
-                <h3>Tips For Your Mac</h3>
+                <h1>Tips For Your Mac</h1>
             </div>
         </div>
         <div id="MacHelp" class="closedPopup window">
             <div class="popupHeader"><p onClick="closePopup('MacHelp')">x</p></div>
             <div class="popupContainer">
-                <h3>MacOS Help</h3>
+                <h1>MacOS Help</h1>
             </div>
         </div>
 
@@ -105,7 +105,7 @@
             </div>
         </div>
 
-        <!-- QuickTime Player -->
+        <!-- File -->
         <div id="file" class="app" ondblclick="openPopup('fileOpen')">
             <div id="fileIcon" class="appIcon"></div>
             <p id="fileName" class="appName">Open_letter_to<br>_hobbyists.pdf</p>
@@ -131,6 +131,17 @@
                     <br><br>
                     Bill Gates<br>General Partner, Micro-Soft</p>
                     <a href="https://archive.nytimes.com/www.nytimes.com/library/cyber/surf/072397mind-letter.html">View Original</a><br><br>
+            </div>
+        </div>
+
+        <!-- Folder -->
+        <div id="folder" class="app" ondblclick="openPopup('folderOpen')">
+            <div id="folderIcon" class="appIcon"></div>
+            <p id="folderName" class="appName">Videos</p>
+        </div>
+        <div id="folderOpen" class="appOpen window">
+            <div class="popupHeader"><p onClick="closePopup('folderOpen')">x</p></div>
+            <div class="popupContainer">
             </div>
         </div>
 

@@ -5,6 +5,7 @@
     background-color: grey;
     font-family: 'VT323', monospace;
     cursor: url('../images/cursor.png'), auto;
+    overflow: scroll;
 }
 a {
     color: black;
@@ -15,6 +16,7 @@ a::after {
 
 .window {
     z-index: 1;
+    box-shadow: none;
 }
 
 /* ****** TOP TITLE BAR ******* */
@@ -106,9 +108,10 @@ a::after {
 #welcomePopup {
     display: block;
     background-color: rgb(240, 240, 240);
-    height: 100px;
+    height: 150px;
     width: 400px;
     position: absolute;
+    font-size: 20px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -144,6 +147,7 @@ a::after {
 }
 .popupContainer {
     padding: 0px 20px;
+    background-color: transparent;
 }
 
 /* ABOUT THIS MAC */
@@ -153,6 +157,9 @@ a::after {
 }
 
 /* SYSTEM SETTINGS */
+#systemSettings {
+    height: 300px;
+}
 .radio {
     padding: 5px;
 }
@@ -190,6 +197,7 @@ a::after {
     background-color: white;
     margin: 2px 0px 0px 0px;
     text-align: center;
+    box-shadow: none;
 }
 
 #musicPlayer {
@@ -208,6 +216,10 @@ a::after {
 #fileOpen {
     height: 600px;
     overflow: scroll;
+}
+#folder {
+    top: 400px;
+    right: 50px;
 }
 /* ****** APPS OPEN ****** */
 .appOpen {
