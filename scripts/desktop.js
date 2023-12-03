@@ -11,6 +11,7 @@ function toggleDropdown(toggledClass) {
 }
 
 function newPage() { location.href = "index.html"; }
+function openResponses() {location.href = "./CART 211/index.html"}
 function openPopup(popupId) { document.getElementById(popupId).style.display = "block"; }
 function closePopup(popupId) { document.getElementById(popupId).style.display = "none"; }
 
@@ -25,29 +26,39 @@ function radioValue() {
     }
     // close system settings window once submitted
     document.getElementById('systemSettings').style.display = "none";
-    if (chosenDecade != "80s") {
-        document.getElementById("browser").style.display = "block";
-    }
+
     if (chosenDecade == "80s") {
+        audioArray = audio80s;
+        songNameArray = songNames80s;
+        artistNameArray = artistNames80s;
         location.href = "desktop.html";
     }
     if (chosenDecade == "90s") {
+        audioArray = audio90s;
+        songNameArray = songNames90s;
+        artistNameArray = artistNames90s;
         changeBaseStyle(backgroundImgs[1], "cover", fontFamily[0], "18px", "rgb(220, 220, 220)", "2px solid black");
         changeText(aboutMacHeaders[1], aboutMacInfos[1]);
         changeGeneralWindowStyle(WindowStyle90s, closeButton90s);
-        changeAppIcons(appName90s, "Play Music", "Browse The Internet");
+        changeAppIcons(appName90s, "Play Music");
     }
     if (chosenDecade == "00s") {
+        audioArray = audio00s;
+        songNameArray = songNames00s;
+        artistNameArray = artistNames00s;
         changeBaseStyle(backgroundImgs[2], "cover", fontFamily[1], "12px", "rgb(240, 240, 240)", "2px solid black");
         changeText(aboutMacHeaders[2], aboutMacInfos[2]);
         changeGeneralWindowStyle(WindowStyle00s, closeButton00s);
-        changeAppIcons(appName00s, "iMusic", "Safari");
+        changeAppIcons(appName00s, "iMusic");
     }
     if (chosenDecade == "20s") {
+        audioArray = audio20s;
+        songNameArray = songNames20s;
+        artistNameArray = artistNames20s;
         changeBaseStyle(backgroundImgs[4], "cover", fontFamily[2], "13px", "rgb(270, 270, 270, 0.7)", "none");
         changeText(aboutMacHeaders[4], aboutMacInfos[4]);
         changeGeneralWindowStyle(WindowStyle20s, closeButton20s);
-        changeAppIcons(appName20s, "Apple Music", "Safari");
+        changeAppIcons(appName20s, "Apple Music");
     }
 }
 
@@ -120,7 +131,7 @@ const appName90s = ["16px", "rgb(240, 240, 240, 0.9)", "black", "2px 0px 0px 0px
 const appName00s = ["12px", "transparent", "white", "2px 0px 0px 0px", "none"];
 const appName20s = ["10px", "transparent", "white", "5px 0px 0px 0px", "none"];
 
-function changeAppIcons(appNameArray, appNameText, browserName) {
+function changeAppIcons(appNameArray, appNameText) {
     const appIcons = document.getElementsByClassName('appIcon');
     for (let i = 0; i < appIcons.length; i++) {
         console.log('changed app icon img');
@@ -135,7 +146,6 @@ function changeAppIcons(appNameArray, appNameText, browserName) {
         appNames[i].style.fontStyle = appNameArray[4];
     }
     document.getElementById('musicPlayerName').innerHTML = appNameText;
-    document.getElementById('browserName').innerHTML = browserName;
 }
 
 
@@ -150,14 +160,77 @@ function updateTime() {
 setInterval(updateTime, 1000);
 
 // --------- MUSIC PLAYER ---------- //
-var audio = new Audio('./audios/crush.mp3', loop=true, volume=0.5);
+var hey = new Audio('./audios/hey.mp3', loop=true);
+var cantStand = new Audio('./audios/cant_stand.mp3', loop=true);
+var headOver = new Audio('./audios/headOverHeels.mp3', loop=true);
+
+var sunday = new Audio('./audios/sunday.mp3', loop=true);
+var fade = new Audio('./audios/fadeIntoYou.mp3', loop=true);
+var onEarth = new Audio('./audios/onEarth.mp3', loop=true);
+
+var msJackson = new Audio('./audios/msJackson.mp3', loop=true);
+var naive = new Audio('./audios/naive.mp3', loop=true);
+var whenTheSun = new Audio('./audios/whenTheSun.mp3', loop=true);
+
+var crush = new Audio('./audios/crush.mp3', loop=true);
+var faye = new Audio('./audios/faye.mp3', loop=true);
+
+const audio80s = [hey, cantStand, headOver];
+const audio90s = [sunday, fade, onEarth];
+const audio00s = [msJackson, naive, whenTheSun];
+const audio20s = [crush, faye];
+
+const songNames80s = ["Hey", "Can't Stand Losing You", "Head Over Heels"];
+const songNames90s = ["Sunday", "Fade Into You", "On Earth"];
+const songNames00s = ["Ms. Jackson", "Naive", "When The Sun Goes Down"];
+const songNames20s = ["Crush", "I Know I'm Funny haha"];
+
+const artistNames80s = ["Pixies", "The Police", "Tears For Fears"];
+const artistNames90s = ["The Cranberries", "Mazzy Star", "The Sundays"];
+const artistNames00s = ["Outkast", "The Kooks", "Arctic Monkeys"];
+const artistNames20s = ["Ethel Cain", "Faye Webster"];
+
+var currentTrack = 0;
+var audioArray = audio80s;
+var songNameArray = songNames80s;
+var artistNameArray = artistNames80s;
+
+function nextTrack() {
+    pauseMusic();
+    audioArray[currentTrack].currentTime = 0;
+    if (currentTrack >= audioArray.length - 1) {
+        currentTrack = 0;
+    } else { 
+        currentTrack += 1;
+    } 
+    playMusic();
+    document.getElementById('songName').innerHTML = songNameArray[currentTrack];
+    document.getElementById('artistName').innerHTML = artistNameArray[currentTrack];
+}
+
+function prevTrack() {
+    pauseMusic();
+    audioArray[currentTrack].currentTime = 0;
+    if (currentTrack <= 0) {
+        currentTrack = audioArray.length - 1;
+    } else { 
+        currentTrack -= 1;
+    } 
+    playMusic();
+    document.getElementById('songName').innerHTML = songNameArray[currentTrack];
+    document.getElementById('artistName').innerHTML = artistNameArray[currentTrack];
+}
+
 function playMusic() {
     document.getElementById('disk').style.animationPlayState = "running";
     document.getElementById('play').style.backgroundColor = "grey";
     document.getElementById('pause').style.backgroundColor = "black";
     document.getElementById('needle').style.transform = "rotate(30deg)";
     document.getElementById('needle').style.transition = "transform 1s";
-    audio.play();
+    document.getElementById('songInfo').style.display = "block";
+    document.getElementById('songName').innerHTML = songNameArray[currentTrack];
+    document.getElementById('artistName').innerHTML = artistNameArray[currentTrack];
+    audioArray[currentTrack].play();
 }
 function pauseMusic() {
     document.getElementById('disk').style.animationPlayState = "paused";
@@ -165,12 +238,8 @@ function pauseMusic() {
     document.getElementById('pause').style.backgroundColor = "grey";
     document.getElementById('needle').style.transform = "rotate(0deg)";
     document.getElementById('needle').style.transition = "transform 1s";
-    audio.pause();
+    document.getElementById('songInfo').style.display = "none";
+    audioArray[currentTrack].pause();
 }
 
 // background images from: https://www.reddit.com/r/VintageApple/comments/t20smz/heres_every_mac_os_default_wallpaper_19842022_4k/
-
-
-// add-ons: timed popups / randomly show?
-// custom cursor
-// responsive, but needs to work on mobile or can be wide-screen compatible only

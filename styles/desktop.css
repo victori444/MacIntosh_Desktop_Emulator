@@ -204,11 +204,7 @@ a::after {
     top: 100px;
     right: 50px;
 }
-#browser {
-    display: none;
-    top: 200px;
-    right: 15px;
-}
+
 #file {
     top: 300px;
     right: 25px;
@@ -262,8 +258,6 @@ a::after {
     height: 250px;
     background-color: grey;
     transform-origin: top left;
-    /* transform: rotate(30deg);
-    transition: transform 5s; */
 }
 .musicButtons{
     position: absolute;
@@ -272,8 +266,18 @@ a::after {
     display: flex;
 }
 .musicButton{
-    margin: 0px 10px;
-    width: 50px;
-    height: 50px;
+    margin: 0px 5px;
+    width: 40px;
+    height: 40px;
     background-color: black;
+}
+#songInfo {
+    position: absolute;
+    display: none;
+    margin-top: 150px;
+    right: 70px;
+
+}
+.songInfo p {
+    text-align: center;
 }

@@ -24,13 +24,12 @@
                 </div>
                 <p class="titleBar_title" id="titleBar_title_2" onClick="toggleDropdown('titleBar_drop_content_2')">File</p>
                 <div id="titleBar_drop_content_2" class="titleBar_drop_content window">
-                    <p>Credits</p>
-                    <p>item 2</p>
+                    <p onClick="openPopup('credits')">Credits</p>
+                    <p onClick="openPopup('fileOpen')">Open Recent</p>
                 </div>
                 <p class="titleBar_title" id="titleBar_title_3" onClick="toggleDropdown('titleBar_drop_content_3')">Edit</p>
                 <div id="titleBar_drop_content_3" class="titleBar_drop_content window">
-                    <p>item 1</p>
-                    <p>item 2</p>
+                    <p>Please login to a user account to edit files.</p>
                 </div>
                 <p class="titleBar_title" id="titleBar_title_4" onClick="toggleDropdown('titleBar_drop_content_4')">Help</p>
                 <div id="titleBar_drop_content_4" class="titleBar_drop_content window">
@@ -50,6 +49,13 @@
         </div>
 
         <!-- POPUPS -->
+        <!-- credits -->
+        <div id="credits" class="closedPopup window">
+            <div class="popupHeader"><p onClick="closePopup('credits')">x</p></div>
+            <div class="popupContainer">
+                <h1 id="creditsHeader">Credits</h1>
+            </div>
+        </div>
         <!-- About Mac -->
         <div id="aboutMacPopup" class="closedPopup window">
             <div class="popupHeader"><p onClick="closePopup('aboutMacPopup')">x</p></div>
@@ -67,7 +73,6 @@
                 <input type="radio" id="80s" value="80s" name="decade">80s
                 <input type="radio" id="90s" value="90s" name="decade">90s
                 <input type="radio" id="00s" value="00s" name="decade">00s
-                <input type="radio" id="10s" value="10s" name="decade">10s
                 <input type="radio" id="20s" value="20s" name="decade">20s
                 <br><br>
                 <button id="button" type="button" onClick="radioValue()">Save Settings</button>
@@ -78,12 +83,17 @@
             <div class="popupHeader"><p onClick="closePopup('tipsPopup')">x</p></div>
             <div class="popupContainer">
                 <h1>Tips For Your Mac</h1>
+                <p>i. Looking for a new look? Head to System Settings to discover more!</p>
+                <p>ii. Discover new music, only one click from the desktop. Don't forget to turn up your volume!</p>
+                <p>iii. Tired of this website? Log out!</p>
             </div>
         </div>
         <div id="MacHelp" class="closedPopup window">
             <div class="popupHeader"><p onClick="closePopup('MacHelp')">x</p></div>
             <div class="popupContainer">
                 <h1>MacOS Help</h1>
+                <p>Want to learn more about Creative Computing & Network Culture?</p>
+                <p onClick="openResponses()">Click here!</p>
             </div>
         </div>
 
@@ -101,6 +111,13 @@
                 <div class="musicButtons">
                     <div id="play" class="musicButton" onClick="playMusic()"></div>
                     <div id="pause" class="musicButton" onClick="pauseMusic()"></div>
+                    <div id="next" class="musicButton" onClick="nextTrack()"></div>
+                    <div id="prev" class="musicButton" onClick="prevTrack()"></div>
+                </div>
+                <div id="songInfo">
+                    <h2>Now Playing</h2>
+                    <p id="songName"></p>
+                    <p id="artistName"></p>
                 </div>
             </div>
         </div>
@@ -134,24 +151,15 @@
             </div>
         </div>
 
-        <!-- Folder -->
-        <div id="folder" class="app" ondblclick="openPopup('folderOpen')">
+        <!-- Reading Responses -->
+        <div id="folder" class="app" ondblclick="openResponses()">
             <div id="folderIcon" class="appIcon"></div>
-            <p id="folderName" class="appName">Videos</p>
+            <p id="folderName" class="appName">Reading Responses</p>
         </div>
         <div id="folderOpen" class="appOpen window">
             <div class="popupHeader"><p onClick="closePopup('folderOpen')">x</p></div>
             <div class="popupContainer">
             </div>
-        </div>
-
-        <!-- Browser (only available in the 90s) -->
-        <div id="browser" class="app" ondblclick="openPopup('browserOpen')">
-            <div id="browserIcon" class="appIcon"></div>
-            <p id="browserName" class="appName">Browse The Internet</p>
-        </div>
-        <div id="browserOpen" class="appOpen window">
-            <div class="popupHeader"><p onClick="closePopup('browserOpen')">x</p></div>
         </div>
     </body>
 </html>
